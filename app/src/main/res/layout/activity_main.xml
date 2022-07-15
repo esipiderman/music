@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:src="@drawable/music_cover"
+        android:id="@+id/circle_view_main"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linear_names"
+        android:layout_width="290dp"
+        android:layout_height="290dp"/>
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:id="@+id/linear_names"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/circle_view_main"
+        app:layout_constraintBottom_toTopOf="@id/linear_slider"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textSize="32sp"
+            android:textColor="?attr/colorPrimary"
+            android:text="Negine Ghalbami"
+            android:id="@+id/txt_music_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="4dp"
+            android:textSize="18sp"
+            android:textColor="?attr/colorOnPrimary"
+            android:text="Majid Razavi"
+            android:id="@+id/txt_singer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_names"
+        app:layout_constraintBottom_toTopOf="@id/frame_buttons"
+        android:id="@+id/linear_slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider_music"
+            app:labelBehavior="gone"
+            android:valueFrom="0"
+            android:valueTo="100"
+            android:value="0"
+            app:trackHeight="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <FrameLayout
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:id="@+id/frame_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/music_start"
+                android:textColor="?attr/colorPrimary"
+                android:text="00:00"
+                android:layout_gravity="center_vertical|start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/music_end"
+                android:textColor="?attr/colorPrimary"
+                android:text="00:00"
+                android:layout_gravity="end|center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="42dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_slider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/frame_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/btn_volume"
+            app:tint="?attr/colorPrimary"
+            android:padding="20dp"
+            android:layout_gravity="start|center_vertical"
+            android:src="@drawable/ic_volume_on"
+            android:layout_width="60dp"
+            android:layout_height="60dp"/>
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/btn_before"
+                app:tint="?attr/colorPrimary"
+                android:padding="16dp"
+                android:src="@drawable/ic_before"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+
+            <ImageView
+                android:id="@+id/btn_play"
+                android:background="@drawable/shape_play"
+                app:tint="?attr/colorPrimaryVariant"
+                android:src="@drawable/ic_play"
+                android:padding="16dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+
+            <ImageView
+                android:id="@+id/btn_next"
+                app:tint="?attr/colorPrimary"
+                android:padding="16dp"
+                android:src="@drawable/ic_next"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+
+        </LinearLayout>
+
+        <com.varunest.sparkbutton.SparkButton
+            app:sparkbutton_activeImage="@drawable/ic_heart_selected"
+            app:sparkbutton_inActiveImage="@drawable/ic_heart_not_selected"
+            app:sparkbutton_iconSize="20dp"
+            app:sparkbutton_primaryColor="?attr/colorSecondary"
+            app:sparkbutton_secondaryColor="?attr/colorPrimary"
+            android:layout_gravity="end|center_vertical"
+            android:id="@+id/img_heart"
+            android:layout_width="60dp"
+            android:layout_height="60dp"/>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
